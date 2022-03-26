@@ -1,0 +1,15 @@
+step 1: Make the window open with a blank black screen
+
+step 2: Make the players display on the screen. 
+
+step 3: Make the players move on the screen
+description: 
+'
+Players can move up, down, left and right...
+Player one moves using the W, S, A and D keys.
+Player two moves using the I, K, J and L keys.
+'
+
+step 4: make the trails display on the screen where the player once was. 
+
+step 5: make the 
