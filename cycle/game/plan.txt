@@ -11,5 +11,16 @@ Player two moves using the I, K, J and L keys.
 '
 
 step 4: make the trails display on the screen where the player once was. 
+description: 
+'
+Each player's trail grows as they move.
+'
 
-step 5: make the 
+step 5: Make the game over mode happen whenever a player collides with an opponent's trail
+description: 
+'
+If a player collides with their opponent's trail...
+A "game over" message is displayed in the middle of the screen.
+The cycles turn white.
+Players keep moving and turning but don't run into each other.
+'
