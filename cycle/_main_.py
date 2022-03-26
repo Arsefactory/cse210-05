@@ -15,7 +15,17 @@ CAPTION = 'Cycle'
 
 def main():
     # start the game
-    pass
+    cast = Cast()
+    
+    x = int(MAX_X / 2)
+    y = int(MAX_Y / 2)
+    player = Player(x, 560)
+    cast.set_player(player)
+
+    keyboard_service = Keyboard_Service(CELL_SIZE)
+    video_service = Video_Service(CAPTION, MAX_X, MAX_Y, CELL_SIZE, FRAME_RATE)
+    director = Director(keyboard_service, video_service)
+    director.start_game(cast)
 
 
 if __name__ == '__main__':
