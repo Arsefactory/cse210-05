@@ -1,4 +1,3 @@
-
 # Names of People in Group: 
 # Dawson Packer
 # John Pischke
@@ -31,4 +30,5 @@ class Player:
         return self._color
 
     def move_x(self, value):
+        self._location.move(value.get_x(),0)
         self._location.move(value.get_x(),0)
