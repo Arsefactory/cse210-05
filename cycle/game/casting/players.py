@@ -30,5 +30,13 @@ class Player:
         return self._color
 
     def move_x(self, value):
+<<<<<<< HEAD
+        self._location.move(value.get_x(),value.get_y())
+=======
         self._location.move(value.get_x(),0)
         self._location.move(value.get_x(),0)
+<<<<<<< Updated upstream
+        self._location.move(value.get_x(),0)
+=======
+>>>>>>> db95c893903407f9893e73a5d9d89aa1d0a28e75
+>>>>>>> Stashed changes

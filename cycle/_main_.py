@@ -5,6 +5,7 @@
 
 from game.director.director import Director
 from game.services.video_service import Video_Service
+from game.services.keyboard_service import Keyboard_Service
 
 FRAME_RATE = 12
 MAX_X = 900
@@ -23,7 +24,8 @@ def main():
     y = int(MAX_Y / 2)
 
     video_service = Video_Service(CAPTION, MAX_X, MAX_Y, CELL_SIZE, FRAME_RATE)
-    director = Director("keyboard_service", video_service)
+    keyboard_service = Keyboard_Service(CELL_SIZE)
+    director = Director(keyboard_service, video_service)
     director.start_game()
 
 
