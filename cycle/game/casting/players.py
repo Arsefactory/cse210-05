@@ -1,11 +1,3 @@
-<<<<<<< Updated upstream
-
-from game.location.location import Location
-
-class Cast:
-    
-    def __init__(self):
-=======
 # Names of People in Group: 
 # Dawson Packer
 # John Pischke
@@ -41,6 +33,3 @@ class Player:
 
     def move_x(self, value):
         self._location.move(value.get_x(),0)
-
-    
->>>>>>> Stashed changes
