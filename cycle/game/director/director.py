@@ -8,6 +8,7 @@
 
 STONES_PER_FRAME = 1
 import pyray
+from game.casting.players import Player
 
 class Director:
     
@@ -15,6 +16,7 @@ class Director:
         #self._keyboard_service = keyboard_service
         self._video_service = video_service
         self._cast = ""
+        self.player = Player(200,200)
 
     def start_game(self):
         #self._cast = cast
@@ -43,7 +45,7 @@ class Director:
         self._video_service.clear_buffer()
         #actors = self._cast.get_cast()
         #player = self._cast.get_player()
-        #self._video_service.draw_actor(player)
+        self._video_service.draw_actor(self.player)
         #self._video_service.draw_actors(actors)
         pyray.draw_text(str("self._cast.points_total"), 25, 25, 30, (252,252,252))
         self._video_service.flush_buffer()
