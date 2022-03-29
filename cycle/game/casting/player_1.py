@@ -31,5 +31,11 @@ class Player_1(Player):
     def get_color(self):
         return self._color
 
-    def move_x(self, value):
-        self._location.move(value.get_x(),value.get_y())
+    #def move_x(self, value):
+   #     self._location.move(value.get_x(),value.get_y())
+    
+    def get_velocity(self):
+        return self.velocity
+
+    def set_velocity(self,velocity):
+        self.velocity = velocity

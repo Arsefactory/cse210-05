@@ -14,6 +14,7 @@ class Player_2(Player):
         #self._symbol = "#"
         #self._text_size = 50
         self._color = (0,255,255)
+        self.velocity = (0,1)
         
 
     def get_x(self):
@@ -31,5 +32,5 @@ class Player_2(Player):
     def get_color(self):
         return self._color
 
-    def move_x(self, value):
-        self._location.move(value.get_x(),value.get_y())
+    #def move_x(self, value):
+  #      self._location.move(value.get_x(),value.get_y())

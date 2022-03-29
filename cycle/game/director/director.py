@@ -21,6 +21,8 @@ class Director:
         self._cast = ""
         self.player = Player_1(200,200)
         self.player_2 = Player_2(400,400)
+        self.velocity = (1,0)
+        self.velocity_2 = (-1,0)
 
     def start_game(self):
         #self._cast = cast
@@ -37,10 +39,15 @@ class Director:
     def _get_inputs(self):
         player = self.player
         player_2 = self.player_2
-        velocity = self._keyboard_service.get_direction()
-        velocity_2 = self._keyboard_service_2.get_direction()
-        player.move_x(velocity)
-        player_2.move_x(velocity_2)
+        if self._keyboard_service.get_direction() != (0,0):
+
+           self.velocity = self._keyboard_service.get_direction()
+        if self._keyboard_service_2.get_direction() != (0,0):
+
+            self.velocity_2 = self._keyboard_service_2.get_direction()
+
+        player.move_x(self.velocity)
+        player_2.move_x(self.velocity_2)
         pass
 
     def _do_updates(self):
