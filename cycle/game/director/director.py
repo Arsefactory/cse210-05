@@ -68,12 +68,12 @@ class Director:
         chunk_2 = Trail_Chunk(x_2,y_2,self.trail_2_color[0],self.trail_2_color[1],self.trail_2_color[2])
         self.trail.add_chunk(chunk)
         self.trail_2.add_chunk(chunk_2)
+        player_1_location = self.player.get_location()
+        player_2_location = self.player_2.get_location()
         for chunk in self.trail.trail_chunks:
-            player_2_location = self.player_2.get_location()
             if chunk.location.get_location() == player_2_location.get_location():
                  self.game_over = True
         for chunk in self.trail_2.trail_chunks:
-            player_1_location = self.player.get_location()
             if chunk.location.get_location() == player_1_location.get_location():
                  self.game_over = True
         if self.game_over == True:

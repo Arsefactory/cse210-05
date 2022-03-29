@@ -8,7 +8,7 @@ from game.services.video_service import Video_Service
 from game.services.keyboard_service import Keyboard_Service
 from game.services.keyboard_service_2 import Keyboard_Service_2
 
-FRAME_RATE = 12
+FRAME_RATE = 50
 MAX_X = 900
 MAX_Y = 600
 CELL_SIZE = 15
