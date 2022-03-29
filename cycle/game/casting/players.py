@@ -10,8 +10,8 @@ class Player:
     def __init__(self, x, y):
         self._location = Location(x, y)
         self.velocity = (1,0)
-        self._symbol = "#"
-        self._text_size = 50
+        self._symbol = "x"
+        self._text_size = 45
         self._color = (0,255,255)
         
 
