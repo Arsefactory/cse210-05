@@ -6,27 +6,30 @@
 
 
 from game.location.location import Location
+from game.services.keyboard_service import Keyboard_Service
 import pyray
-class Keyboard_Service:
+class Keyboard_Service_2(Keyboard_Service):
     
     def __init__(self, cell_size):
+        super().__init__(cell_size)
         self._cell_size = cell_size
+        
 
    
     def get_direction(self):
         dx = 0
         dy = 0
 
-        if pyray.is_key_down(pyray.KEY_A):
+        if pyray.is_key_down(pyray.KEY_LEFT):
             dx = -1
         
-        if pyray.is_key_down(pyray.KEY_D):
+        if pyray.is_key_down(pyray.KEY_RIGHT):
             dx = 1
 
-        if pyray.is_key_down(pyray.KEY_W):
+        if pyray.is_key_down(pyray.KEY_UP):
             dy = -1
 
-        if pyray.is_key_down(pyray.KEY_S):
+        if pyray.is_key_down(pyray.KEY_DOWN):
             dy = 1
 
         direction = Location(dx, dy)
