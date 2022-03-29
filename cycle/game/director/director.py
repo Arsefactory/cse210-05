@@ -6,8 +6,9 @@
 
 
 
-STONES_PER_FRAME = 1
+
 import pyray
+import random
 from game.casting.players import Player
 from game.casting.player_1 import Player_1
 from game.casting.player_2 import Player_2
@@ -25,6 +26,11 @@ class Director:
         self.player_2 = Player_2(800,300)
         self.velocity = (1,0)
         self.velocity_2 = (-1,0)
+        self.trail = Trail()
+        self.trail_2 = Trail()
+        self.trail_color = (random.randrange(255), random.randrange(255),random.randrange(255))
+        self.trail_2_color = (random.randrange(255), random.randrange(255),random.randrange(255))
+
 
     def start_game(self):
         #self._cast = cast
@@ -34,7 +40,7 @@ class Director:
         self._video_service.open_window()
         while self._video_service.is_window_open():
             self._get_inputs()
-            #self._do_updates()
+            self._do_updates()
             self._do_outputs()
         self._video_service.close_window()
 
@@ -55,18 +61,36 @@ class Director:
     def _do_updates(self):
         x = self.player.get_x()
         y = self.player.get_y()
-        chunk = Trail_Chunk(x,y)
-        # create new trail chunk
-        #add the chunk to the trail
-        #compare to check collision
+        chunk = Trail_Chunk(x,y, self.trail_color[0],self.trail_color[1],self.trail_color[2])
+        x_2 = self.player_2.get_x()
+        y_2 = self.player_2.get_y()
+        chunk_2 = Trail_Chunk(x_2,y_2,self.trail_2_color[0],self.trail_2_color[1],self.trail_2_color[2])
+        self.trail.add_chunk(chunk)
+        self.trail_2.add_chunk(chunk_2)
+        for chunk in self.trail.trail_chunks:
+            player_2_location = self.player_2.get_location()
+            if chunk.location.get_location() == player_2_location.get_location():
+                 pyray.draw_text(str("Game Over"), 25, 25, 30, (252,252,252))
+                 for x in range(20):
+                    print("Game Over, Player 1 won!")
+                 quit()
+        for chunk in self.trail_2.trail_chunks:
+            player_1_location = self.player.get_location()
+            if chunk.location.get_location() == player_1_location.get_location():
+                 pyray.draw_text(str("Game Over"), 25, 25, 30, (252,252,252))
+                 for x in range(20):
+                    print("Game Over, Player 2 won!")
+                 quit()
+                 
+
         
 
     def _do_outputs(self):
         self._video_service.clear_buffer()
-        #actors = self._cast.get_cast()
-        #player = self._cast.get_player()
+        actors = self.trail.trail_chunks
+        actors_2 = self.trail_2.trail_chunks
         self._video_service.draw_actor(self.player)
         self._video_service.draw_actor(self.player_2)
-        #self._video_service.draw_actors(actors)
-        #pyray.draw_text(str("self._cast.points_total"), 25, 25, 30, (252,252,252))
+        self._video_service.draw_actors(actors)
+        self._video_service.draw_actors(actors_2)
         self._video_service.flush_buffer()

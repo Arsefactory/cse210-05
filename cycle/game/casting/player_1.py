@@ -18,6 +18,9 @@ class Player_1(Player):
 
     def get_x(self):
         return self._location.get_x()
+    
+    def get_location(self):
+        return self._location
 
     def get_y(self):
         return self._location.get_y()

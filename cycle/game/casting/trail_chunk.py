@@ -11,14 +11,14 @@ from game.location.location import Location
 
 class Trail_Chunk:
     
-    def __init__(self x, y):
+    def __init__(self, x, y, c1, c2, c3):
         # sets up the location, the points the player has, velocity(speed that things move), the symbol(symbol that
         # will be displayed on the screen), text size, and the color of the symbol that will be displayed on the screen. 
         self.location = Location(x, y)
         self.velocity = 10
-        self.symbol = 1
+        self.symbol = "."
         self.text_size = 50
-        self.color = (0,0,0)
+        self.color = (c1,c2,c3)
 
 
     def get_x(self):

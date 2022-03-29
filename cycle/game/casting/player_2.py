@@ -10,7 +10,7 @@ class Player_2(Player):
     
     def __init__(self, x, y):
         super().__init__(x,y)
-        #self._location = Location(x, y)
+        self._location = Location(x, y)
         #self._symbol = "#"
         #self._text_size = 50
         self._color = (0,255,255)
@@ -19,6 +19,9 @@ class Player_2(Player):
 
     def get_x(self):
         return self._location.get_x()
+    
+    def get_location(self):
+        return self._location
 
     def get_y(self):
         return self._location.get_y()

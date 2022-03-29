@@ -18,6 +18,9 @@ class Location:
         self._point_y += y
         return (self._point_x, self._point_y)
 
+    def get_location(self):
+        return (self._point_x, self._point_y)
+
     def get_x(self):
         return self._point_x 
     
