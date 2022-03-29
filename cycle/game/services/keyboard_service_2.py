@@ -20,16 +20,16 @@ class Keyboard_Service_2(Keyboard_Service):
         dx = 0
         dy = 0
 
-        if pyray.is_key_down(pyray.KEY_LEFT):
+        if pyray.is_key_down(pyray.KEY_J):
             dx = -1
         
-        if pyray.is_key_down(pyray.KEY_RIGHT):
+        if pyray.is_key_down(pyray.KEY_L):
             dx = 1
 
-        if pyray.is_key_down(pyray.KEY_UP):
+        if pyray.is_key_down(pyray.KEY_I):
             dy = -1
 
-        if pyray.is_key_down(pyray.KEY_DOWN):
+        if pyray.is_key_down(pyray.KEY_K):
             dy = 1
 
         direction = (dx * self._cell_size , dy * self._cell_size)

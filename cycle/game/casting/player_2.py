@@ -2,7 +2,7 @@
 # Dawson Packer
 # John Pischke
 # Logan Crossley
-
+import random
 from game.location.location import Location
 from game.casting.players import Player
 
@@ -13,7 +13,7 @@ class Player_2(Player):
         self._location = Location(x, y)
         #self._symbol = "#"
         #self._text_size = 50
-        self._color = (0,255,255)
+        self._color = (random.randrange(255), random.randrange(255),random.randrange(255))
         self.velocity = (0,1)
         
 

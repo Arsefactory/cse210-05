@@ -30,6 +30,7 @@ class Director:
         self.trail_2 = Trail()
         self.trail_color = (random.randrange(255), random.randrange(255),random.randrange(255))
         self.trail_2_color = (random.randrange(255), random.randrange(255),random.randrange(255))
+        self.game_over = False
 
 
     def start_game(self):
@@ -70,23 +71,22 @@ class Director:
         for chunk in self.trail.trail_chunks:
             player_2_location = self.player_2.get_location()
             if chunk.location.get_location() == player_2_location.get_location():
-                 pyray.draw_text(str("Game Over"), 25, 25, 30, (252,252,252))
-                 for x in range(20):
-                    print("Game Over, Player 1 won!")
-                 quit()
+                 self.game_over = True
         for chunk in self.trail_2.trail_chunks:
             player_1_location = self.player.get_location()
             if chunk.location.get_location() == player_1_location.get_location():
-                 pyray.draw_text(str("Game Over"), 25, 25, 30, (252,252,252))
-                 for x in range(20):
-                    print("Game Over, Player 2 won!")
-                 quit()
+                 self.game_over = True
+        if self.game_over == True:
+            self.player.set_color((248,248,255))
+            self.player_2.set_color((248,248,255))
                  
 
         
 
     def _do_outputs(self):
         self._video_service.clear_buffer()
+        if self.game_over == True:
+            pyray.draw_text(str("Game Over"), 80, 250, 150, (252,252,252))
         actors = self.trail.trail_chunks
         actors_2 = self.trail_2.trail_chunks
         self._video_service.draw_actor(self.player)
