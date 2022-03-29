@@ -19,8 +19,8 @@ class Director:
         self._keyboard_service_2 = keyboard_service_2
         self._video_service = video_service
         self._cast = ""
-        self.player = Player_1(200,200)
-        self.player_2 = Player_2(400,400)
+        self.player = Player_1(100,300)
+        self.player_2 = Player_2(800,300)
         self.velocity = (1,0)
         self.velocity_2 = (-1,0)
 
@@ -62,5 +62,5 @@ class Director:
         self._video_service.draw_actor(self.player)
         self._video_service.draw_actor(self.player_2)
         #self._video_service.draw_actors(actors)
-        pyray.draw_text(str("self._cast.points_total"), 25, 25, 30, (252,252,252))
+        #pyray.draw_text(str("self._cast.points_total"), 25, 25, 30, (252,252,252))
         self._video_service.flush_buffer()
