@@ -11,6 +11,8 @@ import pyray
 from game.casting.players import Player
 from game.casting.player_1 import Player_1
 from game.casting.player_2 import Player_2
+from game.casting.trail_chunk import Trail_Chunk
+from game.casting.trail import Trail
 
 class Director:
     
@@ -51,9 +53,13 @@ class Director:
         pass
 
     def _do_updates(self):
-        self._cast.fall()
-        self._cast.create_stones(STONES_PER_FRAME)
-        self._cast.compare()
+        x = self.player.get_x()
+        y = self.player.get_y()
+        chunk = Trail_Chunk(x,y)
+        # create new trail chunk
+        #add the chunk to the trail
+        #compare to check collision
+        
 
     def _do_outputs(self):
         self._video_service.clear_buffer()
