@@ -6,10 +6,12 @@
 
 
 from game.location.location import Location
+from game.services.keyboard_services import Keyboard_Services
 import pyray
-class Keyboard_Service:
+class Keyboard_Service(Keyboard_Services):
     
     def __init__(self, cell_size):
+        super().__init__(cell_size)
         self._cell_size = cell_size
 
    
